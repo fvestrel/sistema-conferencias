@@ -1,0 +1,12 @@
+# Datos de conexión de esta computadora
+/config/database.php
+.env
+.env.*
+
+# Archivos temporales y del sistema
+.DS_Store
+Thumbs.db
+*.log
+*.zip
+/.idea/
+/.vscode/

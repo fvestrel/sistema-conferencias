@@ -1,0 +1,47 @@
+
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; font-size: 15px; color: #222; background: #e8edf2; margin: 0; }
+header, nav, main { max-width: 1000px; margin: auto; padding: 16px; }
+header { background: #dbe4ec; border-bottom: 1px solid #bbc7d4; }
+h1 { font-size: 26px; margin: 0 0 10px; }
+h2 { font-size: 20px; margin-top: 0; }
+header p { margin: 0; }
+nav { background: #f5f7f9; border-bottom: 1px solid #ccd5de; display: flex; flex-wrap: wrap; gap: 18px; }
+a { color: #23558a; }
+nav .activo { font-weight: bold; color: #222; }
+section { background: white; border: 1px solid #ccc; padding: 18px; margin-bottom: 20px; }
+.campos { max-width: 520px; }
+label { display: block; margin-bottom: 12px; }
+input, select, textarea { display: block; width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #999; font: inherit; background: white; color: #222; }
+textarea { min-height: 80px; resize: vertical; }
+button { padding: 8px 14px; background: #e5e5e5; color: #222; border: 1px solid #888; font: inherit; cursor: pointer; }
+button:hover { background: #d5d5d5; }
+.botones, .acciones { display: flex; align-items: center; gap: 12px; }
+.acciones { gap: 8px; flex-wrap: nowrap; white-space: normal; }
+.acciones form { display: flex; margin: 0; }
+.acciones a, .acciones button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid #888;
+    background: #e5e5e5;
+    font: inherit;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.acciones a:hover, .acciones button:hover { background: #d5d5d5; }
+th:last-child, td:last-child { width: 180px; min-width: 180px; vertical-align: middle; }
+.eliminar { color: #9a2020; }
+.tabla { overflow-x: auto; }
+table { width: 100%; min-width: 850px; border-collapse: collapse; font-size: 14px; }
+th, td { border: 1px solid #bbb; padding: 9px; text-align: left; max-width: 300px; overflow-wrap: anywhere; white-space: pre-wrap; }
+th { background: #eee; }
+.error, .exito { padding: 12px; border: 1px solid; }
+.error { background: #fff0f0; color: #902020; }
+.exito { background: #eef7ee; color: #265e26; }
+:focus-visible { outline: 2px solid #23558a; outline-offset: 2px; }
+@media (max-width: 600px) { header, nav, main { padding: 12px; } section { padding: 12px; } h1 { font-size: 23px; } }
