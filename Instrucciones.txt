@@ -1,0 +1,139 @@
+SISTEMA DE GESTIÓN DE CONFERENCIAS
+Instrucciones de instalación y prueba
+
+1. REQUISITOS
+
+- XAMPP con PHP 8.0 o superior y MySQL/MariaDB.
+- Un navegador web.
+- PHP con las extensiones pdo_mysql y mbstring habilitadas.
+
+El proyecto utiliza PHP orientado a objetos y arquitectura MVC. No requiere Composer.
+
+2. DESCARGAR EL PROYECTO
+
+En el repositorio de GitHub, seleccionar Code → Download ZIP y descomprimirlo.
+
+Renombrar la carpeta extraída como sistema-conferencias y colocarla dentro de htdocs:
+
+Windows:
+C:\xampp\htdocs\sistema-conferencias
+
+Dentro de esa carpeta deben aparecer directamente public, src, config y database.
+
+3. INICIAR XAMPP
+
+Abrir el administrador de XAMPP e iniciar Apache y MySQL.
+
+4. CREAR LA BASE DE DATOS
+
+Abrir en el navegador:
+
+http://localhost/phpmyadmin/
+
+Seleccionar Importar, elegir database/esquema.sql del proyecto y ejecutar la importación.
+
+Comprobar que se creó la base gestion_conferencias con estas tablas:
+
+- Conferencistas.
+- Conferencias.
+- Asistentes.
+- Inscripciones.
+
+Se recomienda una instalación nueva. Si ya existe una base con ese nombre y otra estructura, cambiar el nombre en el archivo SQL y en la configuración antes de importar.
+
+5. CONFIGURAR LA CONEXIÓN
+
+Dentro de config, copiar database.example.php y renombrar la copia como database.php.
+
+Abrir database.php y configurar:
+
+host: 127.0.0.1
+port: 3306
+database: gestion_conferencias
+username: root
+password: contraseña de su instalación, o vacía si no tiene.
+
+El archivo database.php no se incluye en GitHub porque contiene la configuración local.
+
+6. ABRIR EL SISTEMA
+
+Ingresar en el navegador:
+
+http://localhost/sistema-conferencias/public/
+
+Si Apache utiliza otro puerto, incluirlo en la dirección. Por ejemplo:
+
+http://localhost:8080/sistema-conferencias/public/
+
+
+7. PROBAR EL REGISTRO Y LA CONSULTA
+
+Crear los registros en este orden:
+
+A. Conferencistas
+Ejemplos:
+Nombre: María
+Apellido: Pérez
+Especialidad: Programación
+Correo: maria@example.com
+
+B. Conferencias
+Conferencista: María Pérez
+Nombre: Introducción a PHP
+Fecha: seleccionar una fecha válida
+Ubicación: Auditorio principal
+Descripción: Conceptos básicos de clases y objetos.
+
+C. Asistentes
+Nombre: Ana
+Apellido: López
+Correo: ana@example.com
+Teléfono: 0991234567
+
+D. Inscripciones
+Seleccionar la conferencia y el asistente registrados.
+
+Después de cada registro, comprobar que aparece en el listado.
+
+8. PROBAR LA EDICIÓN
+
+Pulsar Editar en un registro, modificar un dato y seleccionar Guardar cambios.
+
+Comprobar que el listado muestra el nuevo valor.
+
+9. PROBAR LAS VALIDACIONES
+
+- Intentar enviar campos obligatorios vacíos.
+- Escribir un correo electrónico incorrecto.
+- Intentar inscribir nuevamente al mismo asistente en la misma conferencia.
+- Intentar eliminar una conferencia que todavía tenga una inscripción.
+
+El sistema debe impedir estas operaciones y mostrar el aviso correspondiente.
+
+10. PROBAR LA ELIMINACIÓN
+
+Eliminar primero la inscripción, después la conferencia y finalmente el asistente y el conferencista.
+
+Comprobar que los registros desaparecen de sus listados.
+
+11. ORGANIZACIÓN MVC
+
+src/Models: datos, validaciones y operaciones CRUD.
+src/Controllers: procesamiento de las solicitudes.
+src/Views: formularios y listados.
+public/index.php: punto de entrada.
+public/style.css: estilos de la interfaz.
+
+12. PROBLEMAS FRECUENTES
+
+Si no conecta con la base de datos:
+Verificar que MySQL esté iniciado y revisar database.php.
+
+Si aparece página no encontrada:
+Revisar la ubicación dentro de htdocs, el nombre de la carpeta y el puerto de Apache.
+
+Si no aparecen opciones para una inscripción:
+Registrar primero el conferencista, la conferencia y el asistente.
+
+Si no permite eliminar:
+Eliminar o modificar primero los registros relacionados.
