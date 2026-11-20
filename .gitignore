@@ -10,3 +10,4 @@ Thumbs.db
 *.zip
 /.idea/
 /.vscode/
+/database/actualizar_a_conferencistas.sql
